@@ -8,8 +8,6 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--border-radius);
-
-
 }
 
 .m-card {
@@ -22,15 +20,33 @@
   box-shadow: var(--box-shadow);
   padding: var(--padding-df);
 }
-.m-message-before,.m-message-after{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.m-message-before,
+.m-message-after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.m-message-before {
+  margin-right: 4px;
+}
+.m-message-after {
+  margin-left: 4px;
 }
 .m-content {
   margin: auto;
   display: flex;
   justify-content: center;
-  margin: 0 4px
 }
 
+/* 销毁 */
+@keyframes destroy {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+:host(.destroy) {
+  animation: destroy 1.2s 0.2s forwards;
+}

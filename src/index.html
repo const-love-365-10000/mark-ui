@@ -96,8 +96,7 @@
       </div>
       <h3>事件</h3>
       <div>
-        <m-button class="m-btn">click me</m-button>
-        <m-button class="m-btn">hover me</m-button>
+        m-button相当于原生button，可以直接调用addEventListener监听事件
       </div>
     </div>
   </div>
@@ -105,40 +104,31 @@
     <h2>Message</h2>
     <div>
       <h3>默认样式</h3>
-      <!-- <section>
-        <m-message>我是一条通知</m-message>
-        <m-message icon="loading">我是一条通知</m-message>
-      </section> -->
+      <section>
+        <m-button class="m-btn">click me</m-button>
+        <m-button class="m-btn">hover me</m-button>
+      </section>
     </div>
   </div>
 </body>
-<script>
-  // 按钮
-  const btn = document.querySelectorAll('.m-btn')
-  btn[1].addEventListener('mouseover', function () {
-    // alert('mouseover')
-  })
-  let count = 1
-  btn[0].addEventListener('click', function (e) {
-    // console.log('click-btn', e);
-    // alert('click')
-    addMessage(count++)
-  })
+<script type="module">
+  import {
+    m_message
+  } from "/build/m-message.entry.js"
+  console.log(m_message.addMessage);
 
-  function addMessage(count) {
-    let M_Message_Box = document.querySelector('#m-message-box')
-    console.log(M_Message_Box);
-    if (!M_Message_Box) {
-      M_Message_Box = document.createElement('div')
-      M_Message_Box.id = 'm-message-box'
-      M_Message_Box.style.position = 'fixed'
-      M_Message_Box.style.top = '20px'
-      document.body.appendChild(M_Message_Box)
-    }
-    const M_Message = document.createElement('m-message')
-    M_Message.appendChild(document.createTextNode('测试-' + count))
-    M_Message_Box.appendChild(M_Message)
-  }
+  const btn = document.querySelectorAll('.m-btn')
+  btn[0].addEventListener('click', function (e) {
+    m_message.addMessage('hello Mark-ui')
+  })
+  btn[1].addEventListener('mouseover', function () {
+    m_message.addMessage('hello Mark-ui')
+  })
+</script>
+<script>
+
+
+
 
 </script>
 

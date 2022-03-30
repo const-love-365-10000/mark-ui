@@ -21,10 +21,13 @@ export namespace Components {
         "size": number;
     }
     interface MMessage {
+        "addMessage": (text: any, icon: any, actions: any) => Promise<void>;
         "canDelete": boolean;
         "destroy": (node: HTMLElement) => Promise<void>;
         "icon": string;
         "type": string;
+    }
+    interface MMessageBox {
     }
     interface MyComponent {
     }
@@ -48,6 +51,12 @@ declare global {
         prototype: HTMLMMessageElement;
         new (): HTMLMMessageElement;
     };
+    interface HTMLMMessageBoxElement extends Components.MMessageBox, HTMLStencilElement {
+    }
+    var HTMLMMessageBoxElement: {
+        prototype: HTMLMMessageBoxElement;
+        new (): HTMLMMessageBoxElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -58,6 +67,7 @@ declare global {
         "m-button": HTMLMButtonElement;
         "m-icon": HTMLMIconElement;
         "m-message": HTMLMMessageElement;
+        "m-message-box": HTMLMMessageBoxElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -80,12 +90,15 @@ declare namespace LocalJSX {
         "icon"?: string;
         "type"?: string;
     }
+    interface MMessageBox {
+    }
     interface MyComponent {
     }
     interface IntrinsicElements {
         "m-button": MButton;
         "m-icon": MIcon;
         "m-message": MMessage;
+        "m-message-box": MMessageBox;
         "my-component": MyComponent;
     }
 }
@@ -96,6 +109,7 @@ declare module "@stencil/core" {
             "m-button": LocalJSX.MButton & JSXBase.HTMLAttributes<HTMLMButtonElement>;
             "m-icon": LocalJSX.MIcon & JSXBase.HTMLAttributes<HTMLMIconElement>;
             "m-message": LocalJSX.MMessage & JSXBase.HTMLAttributes<HTMLMMessageElement>;
+            "m-message-box": LocalJSX.MMessageBox & JSXBase.HTMLAttributes<HTMLMMessageBoxElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
