@@ -8,6 +8,8 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--border-radius);
+
+
 }
 
 .m-card {
@@ -26,7 +28,9 @@
     justify-content: center;
 }
 .m-content {
+  margin: auto;
   display: flex;
   justify-content: center;
   margin: 0 4px
 }
+

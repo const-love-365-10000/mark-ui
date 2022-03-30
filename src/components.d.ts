@@ -22,6 +22,7 @@ export namespace Components {
     }
     interface MMessage {
         "canDelete": boolean;
+        "destroy": (node: HTMLElement) => Promise<void>;
         "icon": string;
         "type": string;
     }
