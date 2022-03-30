@@ -1,4 +1,5 @@
 import { Component, Host, h, Prop } from '@stencil/core';
+import { Color, Type } from './Type';
 
 @Component({
   tag: 'm-button',
@@ -6,21 +7,39 @@ import { Component, Host, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class MButton {
-  @Prop() color: string = '';
+  @Prop() color: Color;
   @Prop() disabled: boolean;
+  @Prop() loading: boolean;
   @Prop() icon: string;
-  @Prop() type: string = '';
+  @Prop() type: Type = 'primary';
+  @Prop() href: string;
+
+  private handleSlot(config) {
+    const { href } = config;
+    if (typeof href === 'string') {
+      return (
+        <a href={href} target="_blank">
+          <slot></slot>
+        </a>
+      );
+    } else {
+      return <slot></slot>;
+    }
+  }
+
   render() {
-    let { color, disabled, icon, type } = this;
+    let { color, disabled, loading, icon, type, href, handleSlot } = this;
+    if (loading) icon = 'loading';
+
     return (
       <Host>
-        <button class={`${color} ${type}`} disabled={disabled}>
+        <button id="button" class={`${color ? 'm-color-' + color : ''} m-type-${type} }`} disabled={disabled}>
           {icon && (
             <div class="m-btn-before">
               <m-icon icon={icon}></m-icon>
             </div>
           )}
-          <slot></slot>
+          {handleSlot({ href })}
         </button>
       </Host>
     );

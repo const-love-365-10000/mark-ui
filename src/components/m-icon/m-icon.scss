@@ -1,13 +1,27 @@
 :host {
-  display: flex;
-  align-items: center;
-}
-
-svg {
   --icon-size: 14px;
   --icon-color: #ffffff;
   --icon-fill: none;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host(.m-color-primary) {
+  --icon-color: var(--primary-color);
+}
+:host(.m-color-danger) {
+  --icon-color: var(--danger-color);
+}
+:host(.m-color-warn) {
+  --icon-color: var(--warn-color);
+}
+:host(.m-color-success) {
+  --icon-color: var(--success-color);
+}
+
+svg {
   width: var(--icon-size);
   height: var(--icon-size);
   stroke-linecap: round;
