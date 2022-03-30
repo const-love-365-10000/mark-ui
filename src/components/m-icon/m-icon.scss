@@ -1,0 +1,45 @@
+:host {
+  --icon-size: 14px;
+  --icon-color: #ffffff;
+  --icon-fill: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host(.m-color-primary) {
+  --icon-color: var(--primary-color);
+}
+:host(.m-color-danger) {
+  --icon-color: var(--danger-color);
+}
+:host(.m-color-warn) {
+  --icon-color: var(--warn-color);
+}
+:host(.m-color-success) {
+  --icon-color: var(--success-color);
+}
+
+svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  stroke: var(--icon-color);
+  fill: var(--icon-fill);
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+svg[name='loading'] {
+  border-radius: 50%;
+  animation: loading 3s linear infinite;
+}

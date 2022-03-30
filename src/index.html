@@ -1,14 +1,127 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
+<html dir="ltr" lang="zh-CN">
 
-    <script type="module" src="/build/stencil-starter-project-name.esm.js"></script>
-    <script nomodule src="/build/stencil-starter-project-name.js"></script>
-  </head>
-  <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
+
+  <script type="module" src="/build/first-webcomponent.esm.js"></script>
+  <script nomodule src="/build/first-webcomponent.js"></script>
+  <style>
+    .flex {
+      display: flex;
+      align-items: center;
+    }
+
+    .flex>* {
+      margin-right: 8px;
+    }
+
+    .flex-column {
+      flex-direction: column;
+    }
+
+    .flex-column>* {
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <my-component></my-component>
+  <div>
+    <h2>按钮</h2>
+    <div>
+      <h3>颜色 color</h3>
+      <div class="flex">
+        <m-button>Primary</m-button>
+        <m-button color="danger">danger</m-button>
+        <m-button color="warn">Warn</m-button>
+        <m-button color="success">success</m-button>
+      </div>
+      <h3>风格 type</h3>
+      <div class="flex">
+        <m-button type="primary">default</m-button>
+        <m-button type="dashed" color="primary">dashed</m-button>
+        <m-button type="hollow" color="warn">hollow</m-button>
+        <m-button type="text" color="success">text</m-button>
+        <m-button type="flat" color="danger">flat</m-button>
+      </div>
+      <h3>图标 icon</h3>
+      <div class="flex">
+        <m-button icon="loading">loading</m-button>
+      </div>
+      <h3>图标按钮</h3>
+      <div class="flex">
+        <m-button icon="loading"></m-button>
+        <m-button class="m-round" icon="loading"></m-button>
+      </div>
+      <h3>loading</h3>
+      <div class="flex">
+        <m-button loading>loading</m-button>
+        <m-button loading="false">loading</m-button>
+      </div>
+      <h3>disabled</h3>
+      <div class="flex">
+        <m-button type="primary" disabled>default</m-button>
+        <m-button type="dashed" disabled>dashed</m-button>
+        <m-button type="hollow" disabled>hollow</m-button>
+        <m-button type="text" disabled>text</m-button>
+        <m-button type="flat" disabled>flat</m-button>
+      </div>
+      <h3>链接 href</h3>
+      <div class="flex">
+        <m-button type="primary" href="http://www.baidu.com">百度</m-button>
+        <m-button type="dashed" color="primary" href="http://www.baidu.com">百度</m-button>
+        <m-button type="hollow" color="warn" href="http://www.baidu.com">百度</m-button>
+        <m-button type="text" color="success" href="http://www.baidu.com">百度</m-button>
+        <m-button type="flat" color="danger" href="http://www.baidu.com">百度</m-button>
+      </div>
+      <h3>块级按钮 block</h3>
+      <div class="flex flex-column">
+        <m-button class="m-block" type="primary">default</m-button>
+        <m-button class="m-block" type="dashed" color="primary">dashed</m-button>
+        <m-button class="m-block" type="hollow" color="warn"> hollow</m-button>
+        <m-button class="m-block" type="text" color="success">text</m-button>
+        <m-button class="m-block" type="flat" color="danger">flat</m-button>
+      </div>
+      <h3>自定义按钮</h3>
+      <div class="flex" id="m-button-1">
+        <m-button style="font-size: 50px;">大号字体</m-button>
+        <m-button style="--button-color: #341;--text-color: #999;">自定义颜色</m-button>
+        <m-button style="--border-radius:50%">圆</m-button>
+        <m-button class="m-round" loading></m-button>
+      </div>
+      <h3>事件</h3>
+      <div>
+        <m-button class="m-btn">click me</m-button>
+        <m-button class="m-btn">hover me</m-button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h2>Message</h2>
+    <div>
+      <h3>默认样式</h3>
+      <section>
+        <m-message>我是一条通知</m-message>
+        <m-message icon="loading">我是一条通知</m-message>
+      </section>
+    </div>
+  </div>
+</body>
+<script>
+  // 按钮
+  const btn = document.querySelectorAll('.m-btn')
+  btn[0].addEventListener('click', function (e) {
+    console.log('click-btn', e);
+    alert('click')
+  })
+  btn[1].addEventListener('mouseover', function () {
+    alert('mouseover')
+  })
+
+</script>
+
 </html>

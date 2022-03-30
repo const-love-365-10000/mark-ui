@@ -1,5 +1,5 @@
 {
-  "name": "stencil-starter-project-name",
+  "name": "first-webcomponent",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
@@ -9,7 +9,7 @@
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/stencil-starter-project-name/stencil-starter-project-name.esm.js",
+  "unpkg": "dist/first-webcomponent/first-webcomponent.esm.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/ionic-team/stencil-component-starter.git"
@@ -29,6 +29,7 @@
     "@stencil/core": "^2.13.0"
   },
   "devDependencies": {
+    "@stencil/sass": "^1.5.2",
     "@types/jest": "^27.0.3",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",

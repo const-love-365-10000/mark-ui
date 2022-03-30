@@ -1,0 +1,32 @@
+:host {
+  --background-color: #fff;
+  --text-color: var(--text-color-primary);
+
+  min-width: 100px;
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+}
+
+.m-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  padding: var(--padding-df);
+}
+.m-message-before,.m-message-after{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.m-content {
+  display: flex;
+  justify-content: center;
+  margin: 0 4px
+}

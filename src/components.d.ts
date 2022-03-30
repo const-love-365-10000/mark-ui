@@ -5,23 +5,48 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Color, Type } from "./components/m-button/Type";
 export namespace Components {
+    interface MButton {
+        "color": Color;
+        "disabled": boolean;
+        "href": string;
+        "icon": string;
+        "loading": boolean;
+        "type": Type;
+    }
+    interface MIcon {
+        "icon": string;
+        "iconWidth": number;
+        "size": number;
+    }
+    interface MMessage {
+        "canDelete": boolean;
+        "icon": string;
+        "type": string;
+    }
     interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
     }
 }
 declare global {
+    interface HTMLMButtonElement extends Components.MButton, HTMLStencilElement {
+    }
+    var HTMLMButtonElement: {
+        prototype: HTMLMButtonElement;
+        new (): HTMLMButtonElement;
+    };
+    interface HTMLMIconElement extends Components.MIcon, HTMLStencilElement {
+    }
+    var HTMLMIconElement: {
+        prototype: HTMLMIconElement;
+        new (): HTMLMIconElement;
+    };
+    interface HTMLMMessageElement extends Components.MMessage, HTMLStencilElement {
+    }
+    var HTMLMMessageElement: {
+        prototype: HTMLMMessageElement;
+        new (): HTMLMMessageElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -29,25 +54,37 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "m-button": HTMLMButtonElement;
+        "m-icon": HTMLMIconElement;
+        "m-message": HTMLMMessageElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface MButton {
+        "color"?: Color;
+        "disabled"?: boolean;
+        "href"?: string;
+        "icon"?: string;
+        "loading"?: boolean;
+        "type"?: Type;
+    }
+    interface MIcon {
+        "icon"?: string;
+        "iconWidth"?: number;
+        "size"?: number;
+    }
+    interface MMessage {
+        "canDelete"?: boolean;
+        "icon"?: string;
+        "type"?: string;
+    }
     interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
     }
     interface IntrinsicElements {
+        "m-button": MButton;
+        "m-icon": MIcon;
+        "m-message": MMessage;
         "my-component": MyComponent;
     }
 }
@@ -55,6 +92,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "m-button": LocalJSX.MButton & JSXBase.HTMLAttributes<HTMLMButtonElement>;
+            "m-icon": LocalJSX.MIcon & JSXBase.HTMLAttributes<HTMLMIconElement>;
+            "m-message": LocalJSX.MMessage & JSXBase.HTMLAttributes<HTMLMMessageElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
