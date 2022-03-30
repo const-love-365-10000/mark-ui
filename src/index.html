@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
+
+  <script type="module" src="/build/first-webcomponent.esm.js"></script>
+  <script nomodule src="/build/first-webcomponent.js"></script>
+</head>
+
+<body>
+  <my-component></my-component>
+  <div>
+    <h3>按钮</h3>
+    <div>
+      <h4>颜色</h4>
+      <div>
+        <m-button>Primary</m-button>
+        <m-button color="danger">danger</m-button>
+        <m-button color="warn">Warn</m-button>
+        <m-button color="success">success</m-button>
+      </div>
+      <h3>状态</h3>
+      <div>
+        <m-button disabled="disabled">disabled</m-button>
+
+      </div>
+      <h3>icon</h3>
+      <div>
+        <m-button icon="loading">loading</m-button>
+        <m-button icon="loading">loading</m-button>
+      </div>
+      <h3>风格</h3>
+      <div>
+        <m-button type="primary">default</m-button>
+        <m-button type="dashed">dashed</m-button>
+        <m-button type="text">text</m-button>
+        <m-button type="hollow">hollow</m-button>
+        <m-button type="flat">flat</m-button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
