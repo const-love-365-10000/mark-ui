@@ -5,20 +5,26 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { TYPE } from "./components/m-alert/Type";
 import { Color, Type } from "./components/m-button/Type";
 export namespace Components {
+    interface MAlert {
+        "close": boolean;
+        "icon": string;
+        "type": TYPE;
+    }
     interface MButton {
         "color": Color;
         "disabled": boolean;
-        "href": string;
         "icon": string;
         "loading": boolean;
         "type": Type;
     }
     interface MIcon {
+        "color": string;
         "icon": string;
         "iconWidth": number;
-        "size": number;
+        "size": number | string;
     }
     interface MMessage {
         "addMessage": (text: any, icon: any, actions: any) => Promise<void>;
@@ -33,6 +39,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLMAlertElement extends Components.MAlert, HTMLStencilElement {
+    }
+    var HTMLMAlertElement: {
+        prototype: HTMLMAlertElement;
+        new (): HTMLMAlertElement;
+    };
     interface HTMLMButtonElement extends Components.MButton, HTMLStencilElement {
     }
     var HTMLMButtonElement: {
@@ -64,6 +76,7 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "m-alert": HTMLMAlertElement;
         "m-button": HTMLMButtonElement;
         "m-icon": HTMLMIconElement;
         "m-message": HTMLMMessageElement;
@@ -72,18 +85,23 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface MAlert {
+        "close"?: boolean;
+        "icon"?: string;
+        "type"?: TYPE;
+    }
     interface MButton {
         "color"?: Color;
         "disabled"?: boolean;
-        "href"?: string;
         "icon"?: string;
         "loading"?: boolean;
         "type"?: Type;
     }
     interface MIcon {
+        "color"?: string;
         "icon"?: string;
         "iconWidth"?: number;
-        "size"?: number;
+        "size"?: number | string;
     }
     interface MMessage {
         "canDelete"?: boolean;
@@ -95,6 +113,7 @@ declare namespace LocalJSX {
     interface MyComponent {
     }
     interface IntrinsicElements {
+        "m-alert": MAlert;
         "m-button": MButton;
         "m-icon": MIcon;
         "m-message": MMessage;
@@ -106,6 +125,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "m-alert": LocalJSX.MAlert & JSXBase.HTMLAttributes<HTMLMAlertElement>;
             "m-button": LocalJSX.MButton & JSXBase.HTMLAttributes<HTMLMButtonElement>;
             "m-icon": LocalJSX.MIcon & JSXBase.HTMLAttributes<HTMLMIconElement>;
             "m-message": LocalJSX.MMessage & JSXBase.HTMLAttributes<HTMLMMessageElement>;

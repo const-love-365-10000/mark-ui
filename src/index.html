@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
   <title>Stencil Component Starter</title>
 
-  <script type="module" src="/build/first-webcomponent.esm.js"></script>
-  <script nomodule src="/build/first-webcomponent.js"></script>
+  <script type="module" src="/build/m-webcomponent.esm.js"></script>
+  <script nomodule src="/build/m-webcomponent.js"></script>
   <style>
     .flex {
       display: flex;
@@ -110,12 +110,32 @@
       </section>
     </div>
   </div>
+  <div>
+    <h2>m-alert</h2>
+    <div>
+      <h3>type</h3>
+      <section>
+        <m-alert type="default">这是一条警告</m-alert>
+        <m-alert type="info">这是一条警告</m-alert>
+        <m-alert type="warn">这是一条警告</m-alert>
+        <m-alert type="success">这是一条警告</m-alert>
+        <m-alert type="danger">这是一条警告</m-alert>
+      </section>
+      <h3>close</h3>
+      <section>
+        <m-alert type="default" close>这是一条警告</m-alert>
+        <m-alert type="info" close>这是一条警告</m-alert>
+        <m-alert type="warn" close> 这是一条警告</m-alert>
+        <m-alert type="success" close>这是一条警告</m-alert>
+        <m-alert type="danger" close>这是一条警告</m-alert>
+      </section>
+    </div>
+  </div>
 </body>
 <script type="module">
   import {
     m_message
   } from "/build/m-message.entry.js"
-  console.log(m_message.addMessage);
 
   const btn = document.querySelectorAll('.m-btn')
   btn[0].addEventListener('click', function (e) {

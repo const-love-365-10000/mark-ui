@@ -7,12 +7,13 @@ import { getIcon } from './icons';
 })
 export class MIcon {
   @Prop() icon: string;
-  @Prop() size: number = 14;
+  @Prop() size: number | string = 14;
+  @Prop() color: string = '#FFF';
   @Prop() iconWidth: number = 1;
   render() {
-    const { icon, size, iconWidth } = this;
+    const { icon, size, iconWidth, color } = this;
     return (
-      <Host icon-name={icon} style={{ '--icon-size': size + 'px', '--icon-width': iconWidth + 'px' }}>
+      <Host icon-name={icon} style={{ '--icon-size': size + 'px', '--icon-width': iconWidth + 'px', '--icon-color': color }}>
         {getIcon(icon)}
       </Host>
     );

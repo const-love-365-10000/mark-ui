@@ -14,7 +14,7 @@ export class MMessage {
   @Prop() canDelete: boolean = false;
 
   messageId: number;
-  componentWillRender() {
+  componentWillLoad() {
     this.messageId = messageId;
     curMsgs.push(this.messageId);
     messageId++;

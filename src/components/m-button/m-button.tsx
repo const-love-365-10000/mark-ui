@@ -12,23 +12,9 @@ export class MButton {
   @Prop() loading: boolean;
   @Prop() icon: string;
   @Prop() type: Type = 'primary';
-  @Prop() href: string;
-
-  private handleSlot(config) {
-    const { href } = config;
-    if (typeof href === 'string') {
-      return (
-        <a href={href} target="_blank">
-          <slot></slot>
-        </a>
-      );
-    } else {
-      return <slot></slot>;
-    }
-  }
 
   render() {
-    let { color, disabled, loading, icon, type, href, handleSlot } = this;
+    let { color, disabled, loading, icon, type } = this;
     if (loading) icon = 'loading';
 
     return (
@@ -39,7 +25,7 @@ export class MButton {
               <m-icon icon={icon}></m-icon>
             </div>
           )}
-          {handleSlot({ href })}
+          <slot></slot>
         </button>
       </Host>
     );

@@ -1,0 +1,38 @@
+:host {
+  --background-color: #FFFFFF;
+  --text-color: var(--text-color-primary)
+  min-width: 160px;
+  display: inline-flex;
+
+}
+
+.m-card{
+  background-color: var(--background-color);
+  color:var(--text-color);
+  border-radius: var(--border-radius);
+}
+
+.m-color-info{
+  --background-color: var(--info-color);
+  --text-color: #FFFFFF
+}
+.m-color-warn{
+  --background-color: var(--warn-color);
+  --text-color: #FFFFFF
+}
+.m-color-success{
+  --background-color: var(--success-color);
+  --text-color: #FFFFFF
+}
+.m-color-danger{
+  --background-color: var(--error-color);
+  --text-color: #FFFFFF
+}
+
+.m-content{
+  padding: 0 16px;
+}
+
+.m-message-after>*{
+  cursor: pointer;
+}

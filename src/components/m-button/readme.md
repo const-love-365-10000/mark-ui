@@ -11,7 +11,6 @@
 | ---------- | ---------- | ----------- | ------------------------------------------------------- | ----------- |
 | `color`    | `color`    |             | `"danger" \| "primary" \| "success" \| "warn"`          | `undefined` |
 | `disabled` | `disabled` |             | `boolean`                                               | `undefined` |
-| `href`     | `href`     |             | `string`                                                | `undefined` |
 | `icon`     | `icon`     |             | `string`                                                | `undefined` |
 | `loading`  | `loading`  |             | `boolean`                                               | `undefined` |
 | `type`     | `type`     |             | `"dashed" \| "flat" \| "hollow" \| "primary" \| "text"` | `'primary'` |
