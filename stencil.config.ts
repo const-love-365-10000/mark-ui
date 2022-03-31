@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 
 export const config: Config = {
-  namespace: 'first-webcomponent',
+  namespace: 'm-webcomponent',
   plugins: [
     sass({
       injectGlobalPaths: ['./src/style/index.scss', './src/style/animation.scss'],
@@ -11,7 +11,7 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'dist',
-      esmLoaderPath: '../loader',
+      esmLoaderPath: './loader',
     },
     {
       type: 'dist-custom-elements',

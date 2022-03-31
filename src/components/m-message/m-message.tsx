@@ -33,7 +33,7 @@ export class MMessage {
   }
 
   @Method()
-  destroy(node: HTMLElement) {
+  async destroy(node: HTMLElement) {
     if (!node) return;
     node.classList.add('destroy');
     setTimeout(() => {
@@ -44,7 +44,7 @@ export class MMessage {
   }
 
   @Method()
-  static addMessage(text, icon, actions) {
+  static async addMessage(text, icon, actions) {
     let M_Message_Box = document.querySelector('#m-message-box');
     console.log(M_Message_Box);
     if (!M_Message_Box) {
