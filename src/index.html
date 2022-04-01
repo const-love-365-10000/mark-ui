@@ -5,7 +5,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
   <title>Stencil Component Starter</title>
-
   <script type="module" src="/build/m-webcomponent.esm.js"></script>
   <script nomodule src="/build/m-webcomponent.js"></script>
   <style>
@@ -24,6 +23,11 @@
 
     .flex-column>* {
       margin-top: 8px;
+    }
+
+    .text-center {
+      text-align: center;
+      margin-bottom: 16px;
     }
 
   </style>
@@ -116,18 +120,109 @@
       <h3>type</h3>
       <section>
         <m-alert type="default">这是一条警告</m-alert>
+        <m-alert type="primary">这是一条警告</m-alert>
         <m-alert type="info">这是一条警告</m-alert>
         <m-alert type="warn">这是一条警告</m-alert>
         <m-alert type="success">这是一条警告</m-alert>
         <m-alert type="danger">这是一条警告</m-alert>
       </section>
+      <h3>light</h3>
+      <section>
+        <m-alert type="default" light>这是一条警告</m-alert>
+        <m-alert type="primary" light>这是一条警告</m-alert>
+        <m-alert type="info" light>这是一条警告</m-alert>
+        <m-alert type="warn" light> 这是一条警告</m-alert>
+        <m-alert type="success" light>这是一条警告</m-alert>
+        <m-alert type="danger" light>这是一条警告</m-alert>
+      </section>
       <h3>close</h3>
       <section>
         <m-alert type="default" close>这是一条警告</m-alert>
+        <m-alert type="primary" close>这是一条警告</m-alert>
         <m-alert type="info" close>这是一条警告</m-alert>
         <m-alert type="warn" close> 这是一条警告</m-alert>
         <m-alert type="success" close>这是一条警告</m-alert>
         <m-alert type="danger" close>这是一条警告</m-alert>
+      </section>
+      <h3>icon</h3>
+      <section>
+        <m-alert type="default" icon="info">这是一条警告</m-alert>
+        <m-alert type="primary" icon="info">这是一条警告</m-alert>
+        <m-alert type="info" icon="info">这是一条警告</m-alert>
+        <m-alert type="warn" icon="info"> 这是一条警告</m-alert>
+        <m-alert type="success" icon="info">这是一条警告</m-alert>
+        <m-alert type="danger" icon="info">这是一条警告</m-alert>
+      </section>
+    </div>
+  </div>
+  <div>
+    <h2>m-card</h2>
+    <div>
+      <h3>基础用法</h3>
+      <section>
+        <m-card>
+          <div class="text-center">我是一张卡片</div>
+          <div class="text-center">我是一张卡片</div>
+          <div class="text-center">我是一张卡片</div>
+        </m-card>
+      </section>
+      <h3>
+        header
+      </h3>
+      <section>
+        <m-card>
+          <h4 slot="title">我是标题</h4>
+          <div class="text-center">我不是一条咸鱼</div>
+          <div class="text-center">我不是一条咸鱼</div>
+          <div class="text-center">我不是一条咸鱼</div>
+        </m-card>
+        <m-card>
+          <h4 slot="title">我是标题</h4>
+          <span slot="action">
+            <m-button type="text">action</m-button>
+          </span>
+          <div class="text-center">我不是一条咸鱼</div>
+          <div class="text-center">我不是一条咸鱼</div>
+          <div class="text-center">我不是一条咸鱼</div>
+        </m-card>
+      </section>
+      <h3>inline</h3>
+      <section>
+        <m-card inline>
+          <h4 slot="title">我是标题</h4>
+          <span slot="action">
+            <m-button type="text">查看</m-button>
+            <m-button type="text" color="danger">删除</m-button>
+          </span>
+          <div>
+            <div class="text-center">我不是一条咸鱼</div>
+            <div class="text-center">我不是一条咸鱼</div>
+            <div class="text-center">我不是一条咸鱼</div>
+          </div>
+        </m-card>
+      </section>
+      <h3>有图片的卡点</h3>
+      <section class="flex">
+        <m-card style="--padding: 0px">
+          <img slot="title"
+            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" />
+          <div>
+            Hello world
+          </div>
+        </m-card>
+        <m-card style="--padding: 0px;width: 200px;">
+          <img slot="title" style="width: 100%"
+            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" />
+          <div>高端的食材往往只需要最朴素的烹饪方式</div>
+        </m-card>
+        <m-card inline style="--padding: 0px;">
+          <img slot="title" style="width: 100%"
+            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" />
+          <div>
+            <h4>美味佳肴</h4>
+            <p>高端的食材往往只需要最朴素的烹饪方式</p>
+          </div>
+        </m-card>
       </section>
     </div>
   </div>

@@ -5,7 +5,7 @@ export const config: Config = {
   namespace: 'm-webcomponent',
   plugins: [
     sass({
-      injectGlobalPaths: ['./src/style/index.scss', './src/style/animation.scss'],
+      injectGlobalPaths: ['./src/style/index.scss', './src/style/animation.scss', './src/style/utils.css'],
     }),
   ],
   outputTargets: [

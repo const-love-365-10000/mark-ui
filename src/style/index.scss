@@ -5,6 +5,12 @@
   --warn-color: #faad14; // 警告色
   --error-color: #f5222d; // 错误色
   --info-color: #909399; // 信息色
+  --primary-color-light: rgba(24, 144, 255, 0.65);
+  --info-color-light: rgba(144, 147, 153, 0.65);
+  --warn-color-light: rgba(250, 173, 20, 0.65);
+  --success-color-light: rgba(82, 196, 26, 0.7);
+  --error-color-light: rgba(245, 34, 45, 0.65);
+
   --text-size: 14px; // 主字号
   --text-size-min: 12px;
   --heading-color: rgba(0, 0, 0, 0.85); // 标题色
@@ -25,11 +31,9 @@ a {
 }
 
 .m-card {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  height: 100%;
   background-color: #fff;
   box-shadow: var(--box-shadow);
   padding: var(--padding-df);

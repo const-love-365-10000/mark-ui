@@ -9,11 +9,12 @@ export class MIcon {
   @Prop() icon: string;
   @Prop() size: number | string = 14;
   @Prop() color: string = '#FFF';
+  @Prop() fill: string = 'none';
   @Prop() iconWidth: number = 1;
   render() {
-    const { icon, size, iconWidth, color } = this;
+    const { icon, size, iconWidth, color, fill } = this;
     return (
-      <Host icon-name={icon} style={{ '--icon-size': size + 'px', '--icon-width': iconWidth + 'px', '--icon-color': color }}>
+      <Host icon-name={icon} style={{ '--icon-size': size + 'px', '--icon-width': iconWidth + 'px', '--icon-color': color, '--icon-fill': fill }}>
         {getIcon(icon)}
       </Host>
     );

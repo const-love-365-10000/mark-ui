@@ -2,6 +2,7 @@
   --icon-size: 14px;
   --icon-color: #ffffff;
   --icon-fill: none;
+  --icon-width: 1px;
 
   display: flex;
   align-items: center;
@@ -26,7 +27,7 @@ svg {
   height: var(--icon-size);
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 2;
+  stroke-width: var(--icon-width);
   stroke: var(--icon-color);
   fill: var(--icon-fill);
 }

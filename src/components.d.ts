@@ -11,6 +11,7 @@ export namespace Components {
     interface MAlert {
         "close": boolean;
         "icon": string;
+        "light": boolean;
         "type": TYPE;
     }
     interface MButton {
@@ -20,8 +21,12 @@ export namespace Components {
         "loading": boolean;
         "type": Type;
     }
+    interface MCard {
+        "inline": boolean;
+    }
     interface MIcon {
         "color": string;
+        "fill": string;
         "icon": string;
         "iconWidth": number;
         "size": number | string;
@@ -51,6 +56,12 @@ declare global {
         prototype: HTMLMButtonElement;
         new (): HTMLMButtonElement;
     };
+    interface HTMLMCardElement extends Components.MCard, HTMLStencilElement {
+    }
+    var HTMLMCardElement: {
+        prototype: HTMLMCardElement;
+        new (): HTMLMCardElement;
+    };
     interface HTMLMIconElement extends Components.MIcon, HTMLStencilElement {
     }
     var HTMLMIconElement: {
@@ -78,6 +89,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "m-alert": HTMLMAlertElement;
         "m-button": HTMLMButtonElement;
+        "m-card": HTMLMCardElement;
         "m-icon": HTMLMIconElement;
         "m-message": HTMLMMessageElement;
         "m-message-box": HTMLMMessageBoxElement;
@@ -88,6 +100,7 @@ declare namespace LocalJSX {
     interface MAlert {
         "close"?: boolean;
         "icon"?: string;
+        "light"?: boolean;
         "type"?: TYPE;
     }
     interface MButton {
@@ -97,8 +110,12 @@ declare namespace LocalJSX {
         "loading"?: boolean;
         "type"?: Type;
     }
+    interface MCard {
+        "inline"?: boolean;
+    }
     interface MIcon {
         "color"?: string;
+        "fill"?: string;
         "icon"?: string;
         "iconWidth"?: number;
         "size"?: number | string;
@@ -115,6 +132,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "m-alert": MAlert;
         "m-button": MButton;
+        "m-card": MCard;
         "m-icon": MIcon;
         "m-message": MMessage;
         "m-message-box": MMessageBox;
@@ -127,6 +145,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "m-alert": LocalJSX.MAlert & JSXBase.HTMLAttributes<HTMLMAlertElement>;
             "m-button": LocalJSX.MButton & JSXBase.HTMLAttributes<HTMLMButtonElement>;
+            "m-card": LocalJSX.MCard & JSXBase.HTMLAttributes<HTMLMCardElement>;
             "m-icon": LocalJSX.MIcon & JSXBase.HTMLAttributes<HTMLMIconElement>;
             "m-message": LocalJSX.MMessage & JSXBase.HTMLAttributes<HTMLMMessageElement>;
             "m-message-box": LocalJSX.MMessageBox & JSXBase.HTMLAttributes<HTMLMMessageBoxElement>;
