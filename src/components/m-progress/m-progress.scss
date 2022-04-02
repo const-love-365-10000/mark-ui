@@ -1,0 +1,45 @@
+:host {
+  display: block;
+  --height: 6px;
+  --width: 260px;
+  --progress: 0%;
+  --progress-color: var(--primary-color);
+  --progress-background-color: var(--border-color-light);
+  --progress-text: #fff;
+  background-color: var(--progress-background-color);
+  height: var(--height);
+  width: var(--width);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.m-progress {
+  background-color: var(--progress-color);
+  height: 100%;
+  width: var(--progress, 0%);
+  border-radius: 16px;
+}
+
+.m-color-primary {
+  --progress-color: var(--primary-color);
+}
+.m-color-success {
+  --progress-color: var(--success-color);
+}
+.m-color-danger {
+  --progress-color: var(--error-color);
+}
+.m-color-warn {
+  --progress-color: var(--warn-color);
+}
+
+.m-show-progress {
+  font-size: calc(var(--height) / 1.6);
+  width: calc(100% - 12%);
+  height: 100%;
+  color: var(--progress-text);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}

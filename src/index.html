@@ -8,6 +8,35 @@
   <script type="module" src="/build/m-webcomponent.esm.js"></script>
   <script nomodule src="/build/m-webcomponent.js"></script>
   <style>
+    body {
+      position: relative;
+    }
+
+    .indicator {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background: linear-gradient(to right top, teal 50%, transparent 50%) no-repeat;
+      background-size: 100% calc(100% - 100vh);
+      z-index: 1;
+      pointer-events: none;
+      mix-blend-mode: darken;
+    }
+
+    .indicator::after {
+      content: '';
+      position: fixed;
+      top: 5px;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: #fff;
+      z-index: 1;
+    }
+
+
     .flex {
       display: flex;
       align-items: center;
@@ -19,6 +48,7 @@
 
     .flex-column {
       flex-direction: column;
+      align-items: flex-start;
     }
 
     .flex-column>* {
@@ -34,6 +64,7 @@
 </head>
 
 <body>
+  <div class="indicator"></div>
   <my-component></my-component>
   <div>
     <h2>按钮</h2>
@@ -223,6 +254,70 @@
             <p>高端的食材往往只需要最朴素的烹饪方式</p>
           </div>
         </m-card>
+      </section>
+    </div>
+  </div>
+
+  <div>
+    <h2>m-image</h2>
+    <div>
+      <h3>src</h3>
+      <section>
+        <m-image src="https://cdn.pixabay.com/photo/2017/10/20/01/06/north-star-2869817__340.jpg" style="width: 400px;">
+        </m-image>
+      </section>
+      <h3>fit</h3>
+      <section>
+        <m-image src="https://cdn.pixabay.com/photo/2017/10/20/01/06/north-star-2869817__340.jpg"
+          style="width: 100px;height: 100px" fit="contain"></m-image>
+        <m-image src="https://cdn.pixabay.com/photo/2017/10/20/01/06/north-star-2869817__340.jpg"
+          style="width: 100px;height: 100px" fit="cover"></m-image>
+        <m-image src="https://cdn.pixabay.com/photo/2017/10/20/01/06/north-star-2869817__340.jpg"
+          style="width: 100px;height: 100px" fit="scale-down"></m-image>
+        <m-image src="https://cdn.pixabay.com/photo/2017/10/20/01/06/north-star-2869817__340.jpg"
+          style="width: 100px;height: 100px" fit="fill"></m-image>
+        <m-image src="https://cdn.pixabay.com/photo/2017/10/20/01/06/north-star-2869817__340.jpg"
+          style="width: 100px;height: 100px" fit="none"></m-image>
+      </section>
+      <h3>placeholder</h3>
+      <section>
+        <m-image src="https://cdn.pixabay.com/photo/2017/10/20/01/06/north-star-2869817__340.jpg"
+          style="width: 100px;height: 100px" fit="contain">
+          <p slot="placeholder">加载中......</p>
+        </m-image>
+      </section>
+      <h3>error</h3>
+      <section>
+        <m-image src="https://cdn.pixabay.com/photo/2017/10/20/01/06/.jpg" alt="星空" style="width: 100px;height: 100px"
+          fit="contain">
+          <img slot="error" src="https://imgservices-1252317822.image.myqcloud.com/image/20201015/45prvdakqe.svg" />
+        </m-image>
+      </section>
+    </div>
+  </div>
+
+  <div>
+    <h2>m-progreess</h2>
+    <div>
+      <h3>color</h3>
+      <section class="flex flex-column">
+        <m-progress progress="60%"></m-progress>
+        <m-progress color="primary" progress="70%"></m-progress>
+        <m-progress color="warn" progress="40%"></m-progress>
+        <m-progress color="success" progress="50%"></m-progress>
+        <m-progress color="danger" progress="60%"></m-progress>
+        <m-progress style="--progress-color:#a56;" progress="90%"></m-progress>
+      </section>
+      <h3>控制进度、背景色</h3>
+      <section class="flex flex-column">
+        <m-progress progress="49%"></m-progress>
+        <m-progress progress="56%" style="--height: 4px;--width: 360px;"></m-progress>
+        <m-progress progress="89%" style="--progress-color:#e56;--progress-background-color:#1890ff;"></m-progress>
+      </section>
+      <h3>展示进度</h3>
+      <section class="flex flex-column">
+        <m-progress progress="65%" show-progress style="--height: 16px"></m-progress>
+        <m-progress progress="35%" color="danger" show-progress style="--height: 26px;--width: 300px;"></m-progress>
       </section>
     </div>
   </div>

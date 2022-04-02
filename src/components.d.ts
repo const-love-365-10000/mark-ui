@@ -31,6 +31,11 @@ export namespace Components {
         "iconWidth": number;
         "size": number | string;
     }
+    interface MImage {
+        "alt": string;
+        "fit": string;
+        "src": string;
+    }
     interface MMessage {
         "addMessage": (text: any, icon: any, actions: any) => Promise<void>;
         "canDelete": boolean;
@@ -39,6 +44,11 @@ export namespace Components {
         "type": string;
     }
     interface MMessageBox {
+    }
+    interface MProgress {
+        "color": Color;
+        "progress": string;
+        "showProgress": boolean;
     }
     interface MyComponent {
     }
@@ -68,6 +78,12 @@ declare global {
         prototype: HTMLMIconElement;
         new (): HTMLMIconElement;
     };
+    interface HTMLMImageElement extends Components.MImage, HTMLStencilElement {
+    }
+    var HTMLMImageElement: {
+        prototype: HTMLMImageElement;
+        new (): HTMLMImageElement;
+    };
     interface HTMLMMessageElement extends Components.MMessage, HTMLStencilElement {
     }
     var HTMLMMessageElement: {
@@ -80,6 +96,12 @@ declare global {
         prototype: HTMLMMessageBoxElement;
         new (): HTMLMMessageBoxElement;
     };
+    interface HTMLMProgressElement extends Components.MProgress, HTMLStencilElement {
+    }
+    var HTMLMProgressElement: {
+        prototype: HTMLMProgressElement;
+        new (): HTMLMProgressElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -91,8 +113,10 @@ declare global {
         "m-button": HTMLMButtonElement;
         "m-card": HTMLMCardElement;
         "m-icon": HTMLMIconElement;
+        "m-image": HTMLMImageElement;
         "m-message": HTMLMMessageElement;
         "m-message-box": HTMLMMessageBoxElement;
+        "m-progress": HTMLMProgressElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -120,12 +144,22 @@ declare namespace LocalJSX {
         "iconWidth"?: number;
         "size"?: number | string;
     }
+    interface MImage {
+        "alt"?: string;
+        "fit"?: string;
+        "src": string;
+    }
     interface MMessage {
         "canDelete"?: boolean;
         "icon"?: string;
         "type"?: string;
     }
     interface MMessageBox {
+    }
+    interface MProgress {
+        "color"?: Color;
+        "progress"?: string;
+        "showProgress"?: boolean;
     }
     interface MyComponent {
     }
@@ -134,8 +168,10 @@ declare namespace LocalJSX {
         "m-button": MButton;
         "m-card": MCard;
         "m-icon": MIcon;
+        "m-image": MImage;
         "m-message": MMessage;
         "m-message-box": MMessageBox;
+        "m-progress": MProgress;
         "my-component": MyComponent;
     }
 }
@@ -147,8 +183,10 @@ declare module "@stencil/core" {
             "m-button": LocalJSX.MButton & JSXBase.HTMLAttributes<HTMLMButtonElement>;
             "m-card": LocalJSX.MCard & JSXBase.HTMLAttributes<HTMLMCardElement>;
             "m-icon": LocalJSX.MIcon & JSXBase.HTMLAttributes<HTMLMIconElement>;
+            "m-image": LocalJSX.MImage & JSXBase.HTMLAttributes<HTMLMImageElement>;
             "m-message": LocalJSX.MMessage & JSXBase.HTMLAttributes<HTMLMMessageElement>;
             "m-message-box": LocalJSX.MMessageBox & JSXBase.HTMLAttributes<HTMLMMessageBoxElement>;
+            "m-progress": LocalJSX.MProgress & JSXBase.HTMLAttributes<HTMLMProgressElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

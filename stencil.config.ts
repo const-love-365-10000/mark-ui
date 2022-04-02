@@ -8,6 +8,7 @@ export const config: Config = {
       injectGlobalPaths: ['./src/style/index.scss', './src/style/animation.scss', './src/style/utils.css'],
     }),
   ],
+
   outputTargets: [
     {
       type: 'dist',

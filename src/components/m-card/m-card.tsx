@@ -1,5 +1,6 @@
 import { Component, Host, h, Prop } from '@stencil/core';
 
+let id:number = 0;
 @Component({
   tag: 'm-card',
   styleUrl: 'm-card.scss',
@@ -7,15 +8,15 @@ import { Component, Host, h, Prop } from '@stencil/core';
 })
 export class MCard {
   @Prop() inline: boolean = false;
+  id:number;
   componentWillLoad() {
-    console.log(123);
-
-    console.log(document.querySelector('m-card div'));
+    this.id = id;
+    id++;
   }
   render() {
-    const { inline } = this;
+    const { id,inline } = this;
     return (
-      <Host>
+      <Host id={`${id&&'m-card-'+id}`}>
         <div class={`m-card ${inline && 'flex-row'}`}>
           <div class={`m-card-header ${inline && 'flex-column'}`}>
             <slot name="title"></slot>
