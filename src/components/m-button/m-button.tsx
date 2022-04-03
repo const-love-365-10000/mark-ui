@@ -1,5 +1,7 @@
 import { Component, Host, h, Prop } from '@stencil/core';
-import { Color, Type } from './Type';
+
+// type Type = 'primary' | 'dashed' | 'hollow' | 'text' | 'flat';
+// type Color = 'primary' | 'warn' | 'success' | 'danger';
 
 @Component({
   tag: 'm-button',
@@ -7,11 +9,11 @@ import { Color, Type } from './Type';
   shadow: true,
 })
 export class MButton {
-  @Prop() color: Color;
+  @Prop() color: 'primary' | 'warn' | 'success' | 'danger';
   @Prop() disabled: boolean;
   @Prop() loading: boolean;
   @Prop() icon: string;
-  @Prop() type: Type = 'primary';
+  @Prop() type: 'primary' | 'dashed' | 'hollow' | 'text' | 'flat' = 'primary';
 
   render() {
     let { color, disabled, loading, icon, type } = this;

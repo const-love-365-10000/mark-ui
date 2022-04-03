@@ -1,0 +1,22 @@
+:host {
+  --background-color: var(--info-color);
+  --text-color: #fff;
+  --padding: var(--padding-sm);
+  --text-size: var(--text-size-main);
+  --border: ;
+}
+.m-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  font-size: var(--text-size);
+}
+.m-tag-outline {
+  background-color: transparent;
+  color: var(--background-color);
+  border: var(--border, 1px solid var(--background-color));
+}

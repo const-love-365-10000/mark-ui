@@ -5,21 +5,24 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { TYPE } from "./components/m-alert/Type";
-import { Color, Type } from "./components/m-button/Type";
 export namespace Components {
     interface MAlert {
         "close": boolean;
         "icon": string;
         "light": boolean;
-        "type": TYPE;
+        "type": 'default' | 'primary' | 'info' | 'warn' | 'danger' | 'success';
+    }
+    interface MBreadcrumb {
+        "current": number | string;
+        "list": string[] | string;
+        "separator": string;
     }
     interface MButton {
-        "color": Color;
+        "color": 'primary' | 'warn' | 'success' | 'danger';
         "disabled": boolean;
         "icon": string;
         "loading": boolean;
-        "type": Type;
+        "type": 'primary' | 'dashed' | 'hollow' | 'text' | 'flat';
     }
     interface MCard {
         "inline": boolean;
@@ -46,9 +49,15 @@ export namespace Components {
     interface MMessageBox {
     }
     interface MProgress {
-        "color": Color;
+        "color": 'primary' | 'warn' | 'danger' | 'success';
         "progress": string;
         "showProgress": boolean;
+    }
+    interface MTag {
+        "close": boolean;
+        "color": 'primary' | 'info' | 'warn' | 'success' | 'danger' | string;
+        "destroy": () => Promise<void>;
+        "outline": boolean;
     }
     interface MyComponent {
     }
@@ -59,6 +68,12 @@ declare global {
     var HTMLMAlertElement: {
         prototype: HTMLMAlertElement;
         new (): HTMLMAlertElement;
+    };
+    interface HTMLMBreadcrumbElement extends Components.MBreadcrumb, HTMLStencilElement {
+    }
+    var HTMLMBreadcrumbElement: {
+        prototype: HTMLMBreadcrumbElement;
+        new (): HTMLMBreadcrumbElement;
     };
     interface HTMLMButtonElement extends Components.MButton, HTMLStencilElement {
     }
@@ -102,6 +117,12 @@ declare global {
         prototype: HTMLMProgressElement;
         new (): HTMLMProgressElement;
     };
+    interface HTMLMTagElement extends Components.MTag, HTMLStencilElement {
+    }
+    var HTMLMTagElement: {
+        prototype: HTMLMTagElement;
+        new (): HTMLMTagElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -110,6 +131,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "m-alert": HTMLMAlertElement;
+        "m-breadcrumb": HTMLMBreadcrumbElement;
         "m-button": HTMLMButtonElement;
         "m-card": HTMLMCardElement;
         "m-icon": HTMLMIconElement;
@@ -117,6 +139,7 @@ declare global {
         "m-message": HTMLMMessageElement;
         "m-message-box": HTMLMMessageBoxElement;
         "m-progress": HTMLMProgressElement;
+        "m-tag": HTMLMTagElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -125,14 +148,20 @@ declare namespace LocalJSX {
         "close"?: boolean;
         "icon"?: string;
         "light"?: boolean;
-        "type"?: TYPE;
+        "type"?: 'default' | 'primary' | 'info' | 'warn' | 'danger' | 'success';
+    }
+    interface MBreadcrumb {
+        "current"?: number | string;
+        "list"?: string[] | string;
+        "onLink"?: (event: CustomEvent<{ index: number }>) => void;
+        "separator"?: string;
     }
     interface MButton {
-        "color"?: Color;
+        "color"?: 'primary' | 'warn' | 'success' | 'danger';
         "disabled"?: boolean;
         "icon"?: string;
         "loading"?: boolean;
-        "type"?: Type;
+        "type"?: 'primary' | 'dashed' | 'hollow' | 'text' | 'flat';
     }
     interface MCard {
         "inline"?: boolean;
@@ -157,14 +186,21 @@ declare namespace LocalJSX {
     interface MMessageBox {
     }
     interface MProgress {
-        "color"?: Color;
+        "color"?: 'primary' | 'warn' | 'danger' | 'success';
         "progress"?: string;
         "showProgress"?: boolean;
+    }
+    interface MTag {
+        "close"?: boolean;
+        "color"?: 'primary' | 'info' | 'warn' | 'success' | 'danger' | string;
+        "onClose"?: (event: CustomEvent<{ node: HTMLElement; destroy: () => void }>) => void;
+        "outline"?: boolean;
     }
     interface MyComponent {
     }
     interface IntrinsicElements {
         "m-alert": MAlert;
+        "m-breadcrumb": MBreadcrumb;
         "m-button": MButton;
         "m-card": MCard;
         "m-icon": MIcon;
@@ -172,6 +208,7 @@ declare namespace LocalJSX {
         "m-message": MMessage;
         "m-message-box": MMessageBox;
         "m-progress": MProgress;
+        "m-tag": MTag;
         "my-component": MyComponent;
     }
 }
@@ -180,6 +217,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "m-alert": LocalJSX.MAlert & JSXBase.HTMLAttributes<HTMLMAlertElement>;
+            "m-breadcrumb": LocalJSX.MBreadcrumb & JSXBase.HTMLAttributes<HTMLMBreadcrumbElement>;
             "m-button": LocalJSX.MButton & JSXBase.HTMLAttributes<HTMLMButtonElement>;
             "m-card": LocalJSX.MCard & JSXBase.HTMLAttributes<HTMLMCardElement>;
             "m-icon": LocalJSX.MIcon & JSXBase.HTMLAttributes<HTMLMIconElement>;
@@ -187,6 +225,7 @@ declare module "@stencil/core" {
             "m-message": LocalJSX.MMessage & JSXBase.HTMLAttributes<HTMLMMessageElement>;
             "m-message-box": LocalJSX.MMessageBox & JSXBase.HTMLAttributes<HTMLMMessageBoxElement>;
             "m-progress": LocalJSX.MProgress & JSXBase.HTMLAttributes<HTMLMProgressElement>;
+            "m-tag": LocalJSX.MTag & JSXBase.HTMLAttributes<HTMLMTagElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

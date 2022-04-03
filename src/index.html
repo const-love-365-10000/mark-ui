@@ -60,6 +60,12 @@
       margin-bottom: 16px;
     }
 
+    .custom-tag-2 {
+      --border: 3px solid var(--primary-color-light);
+      --border-radius: 20px;
+      font-weight: bold;
+    }
+
   </style>
 </head>
 
@@ -321,6 +327,75 @@
       </section>
     </div>
   </div>
+
+  <div>
+    <h2>m-breadcrump</h2>
+    <div>
+      <h3>list</h3>
+      <section>
+        <m-breadcrumb id="m-breadcrumb-display1"></m-breadcrumb>
+      </section>
+      <h3>link事件</h3>
+      <section>
+        mark-ui提供link事件，当点击标签后就会触发该事件
+        <m-breadcrumb id="m-breadcrumb-display2" list='["HomePage","PersonalList","PersonalDetail"]'></m-breadcrumb>
+      </section>
+      <h3>current</h3>
+      <section>
+        <m-breadcrumb id="m-breadcrumb-display2" list='["HomePage","PersonalList","PersonalDetail"]'
+          current="PersonalList">
+        </m-breadcrumb>
+      </section>
+      <h3>自定义分隔符</h3>
+      <section>
+        <m-breadcrumb id="m-breadcrumb-display2" separator="-" list='["HomePage","PersonalList","PersonalDetail"]'>
+        </m-breadcrumb>
+        <m-breadcrumb>
+          <span>首页</span>
+          <span>个人中心</span>
+          <span>个人信息</span>
+        </m-breadcrumb>
+      </section>
+    </div>
+  </div>
+
+  <div>
+    <h2>m-tag</h2>
+    <div>
+      <h3>color</h3>
+      <section>
+        <m-tag color="info">tag</m-tag>
+        <m-tag color="primary">tag</m-tag>
+        <m-tag color="success">tag</m-tag>
+        <m-tag color="danger">tag</m-tag>
+        <m-tag color="warn">tag</m-tag>
+        <m-tag color="#3789ae">tag</m-tag>
+      </section>
+      <h3>outline</h3>
+      <section>
+        <m-tag color="info" outline>tag</m-tag>
+        <m-tag color="primary" outline>tag</m-tag>
+        <m-tag color="success" outline>tag</m-tag>
+        <m-tag color="danger" outline>tag</m-tag>
+        <m-tag color="warn" outline>tag</m-tag>
+        <m-tag color="#3789ae" outline>tag</m-tag>
+      </section>
+      <h3>close</h3>
+      <section id="m-tag-close">
+        <p>当close属性为true时tag可以被删除，此时会触发m-tag的close事件</p>
+        <m-tag color="success" close>tag</m-tag>
+        <m-tag color="primary" outline close>tag
+        </m-tag>
+      </section>
+      <h3>更高的灵活性</h3>
+      <section>
+        <m-tag color="info" outline style="--border:2px dotted #222">tag</m-tag>
+        <m-tag class="custom-tag-2" color="primary" outline>
+          在线
+        </m-tag>
+      </section>
+    </div>
+  </div>
 </body>
 <script type="module">
   import {
@@ -336,9 +411,31 @@
   })
 </script>
 <script>
+  const mBreadCrumb1 = document.querySelector("#m-breadcrumb-display1")
+  const mBreadCrumb2 = document.querySelector("#m-breadcrumb-display2")
+  const breadCrumb = ['导航', '个人中心', '报表查看', '考勤清单']
+  mBreadCrumb1.setAttribute('list', breadCrumb)
 
+  function handleBreadcrumb({
+    detail
+  }) {
+    const {
+      item,
+      index
+    } = detail
+    console.log(item, index);
+  }
+  mBreadCrumb2.addEventListener('link', handleBreadcrumb)
 
+  function handleTagClose({
+    detail
+  }) {
+    detail.destroy()
+  }
 
+  for (let item of document.querySelectorAll('#m-tag-close m-tag')) {
+    item.addEventListener('close', handleTagClose)
+  }
 
 </script>
 

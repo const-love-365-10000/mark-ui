@@ -1,19 +1,12 @@
 import { Component, Host, h, Prop } from '@stencil/core';
 
-enum Color {
-  Primary = 'primary',
-  Warn = 'warn',
-  Danger = 'danger',
-  Success = 'success',
-}
-
 @Component({
   tag: 'm-progress',
   styleUrl: 'm-progress.scss',
   shadow: true,
 })
 export class MProgress {
-  @Prop() color: Color;
+  @Prop() color: 'primary' | 'warn' | 'danger' | 'success';
   @Prop() progress: string = '0%';
   @Prop() showProgress: boolean = false;
   render() {

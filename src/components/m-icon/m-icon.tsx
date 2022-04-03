@@ -1,5 +1,6 @@
 import { Component, Host, h, Prop } from '@stencil/core';
 import { getIcon } from './icons';
+
 @Component({
   tag: 'm-icon',
   styleUrl: 'm-icon.scss',

@@ -1,15 +1,15 @@
 import { Component, Host, h, Prop } from '@stencil/core';
-import { TYPE } from './Type';
+
+// type Type = 'default' | 'primary' | 'info' | 'warn' | 'danger' | 'success';
 
 let id = 0;
-
 @Component({
   tag: 'm-alert',
   shadow: true,
   styleUrl: 'm-alert.scss',
 })
 export class MAlert {
-  @Prop() type: TYPE = 'default';
+  @Prop() type: 'default' | 'primary' | 'info' | 'warn' | 'danger' | 'success' = 'default';
   @Prop() icon: string;
   @Prop() light: boolean = false;
   @Prop() close: boolean = false;

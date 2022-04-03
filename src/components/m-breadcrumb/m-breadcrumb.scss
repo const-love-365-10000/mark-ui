@@ -1,0 +1,28 @@
+:host {
+  --text-color: var(--text-color-primary);
+  display: block;
+  user-select: none;
+}
+
+.m-breadcrumb-text {
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.m-breadcrumb > *::before {
+  content: '/';
+  margin: 0 12px;
+}
+.m-breadcrumb > *:first-child::before {
+  content: '';
+  margin: 0;
+}
+
+.m-text-bold {
+  font-weight: 800;
+}
+
+.m-breadcrumb-split {
+  display: inline-block;
+  margin: 0 8px;
+}

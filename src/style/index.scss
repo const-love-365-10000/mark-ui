@@ -11,7 +11,7 @@
   --success-color-light: rgba(82, 196, 26, 0.7);
   --error-color-light: rgba(245, 34, 45, 0.65);
 
-  --text-size: 14px; // 主字号
+  --text-size-main: 14px; // 主字号
   --text-size-min: 12px;
   --heading-color: rgba(0, 0, 0, 0.85); // 标题色
   --text-color-primary: rgba(0, 0, 0, 0.65); // 主文本色
@@ -24,11 +24,16 @@
   --box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05); // 浮层阴影
 
   --padding-df: 8px 12px;
+  --padding-sm: 4px 8px;
 }
 
 a {
   text-decoration: none;
   color: var(--text-color-primary);
+}
+
+* {
+  user-select: none;
 }
 
 .m-card {
@@ -38,4 +43,46 @@ a {
   background-color: #fff;
   box-shadow: var(--box-shadow);
   padding: var(--padding-df);
+}
+
+.m-color-primary {
+  --background-color: var(--primary-color);
+  --text-color: #ffffff;
+}
+.m-color-info {
+  --background-color: var(--info-color);
+  --text-color: #ffffff;
+}
+.m-color-warn {
+  --background-color: var(--warn-color);
+  --text-color: #ffffff;
+}
+.m-color-success {
+  --background-color: var(--success-color);
+  --text-color: #ffffff;
+}
+.m-color-danger {
+  --background-color: var(--error-color);
+  --text-color: #ffffff;
+}
+
+.m-color-primary-light {
+  --background-color: var(--primary-color-light);
+  --text-color: #ffffff;
+}
+.m-color-info-light {
+  --background-color: var(--info-color-light);
+  --text-color: #ffffff;
+}
+.m-color-warn-light {
+  --background-color: var(--warn-color-light);
+  --text-color: #ffffff;
+}
+.m-color-success-light {
+  --background-color: var(--success-color-light);
+  --text-color: #ffffff;
+}
+.m-color-danger-light {
+  --background-color: var(--error-color-light);
+  --text-color: #ffffff;
 }
