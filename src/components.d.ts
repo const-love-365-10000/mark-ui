@@ -36,7 +36,7 @@ export namespace Components {
     }
     interface MImage {
         "alt": string;
-        "fit": string;
+        "fit": 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
         "src": string;
     }
     interface MMessage {
@@ -152,7 +152,7 @@ declare namespace LocalJSX {
     }
     interface MBreadcrumb {
         "current"?: number | string;
-        "list"?: string[] | string;
+        "list": string[] | string;
         "onLink"?: (event: CustomEvent<{ index: number }>) => void;
         "separator"?: string;
     }
@@ -175,7 +175,7 @@ declare namespace LocalJSX {
     }
     interface MImage {
         "alt"?: string;
-        "fit"?: string;
+        "fit"?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
         "src": string;
     }
     interface MMessage {

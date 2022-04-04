@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                                     | Default     |
-| -------- | --------- | ----------- | -------------------------------------------------------- | ----------- |
-| `close`  | `close`   |             | `boolean`                                                | `false`     |
-| `icon`   | `icon`    |             | `string`                                                 | `undefined` |
-| `type`   | `type`    |             | `"danger" \| "default" \| "info" \| "success" \| "warn"` | `'default'` |
+| Property | Attribute | Description | Type                                                                  | Default     |
+| -------- | --------- | ----------- | --------------------------------------------------------------------- | ----------- |
+| `close`  | `close`   |             | `boolean`                                                             | `false`     |
+| `icon`   | `icon`    |             | `string`                                                              | `undefined` |
+| `light`  | `light`   |             | `boolean`                                                             | `false`     |
+| `type`   | `type`    |             | `"danger" \| "default" \| "info" \| "primary" \| "success" \| "warn"` | `'default'` |
 
 
 ## Dependencies

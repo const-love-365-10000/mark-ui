@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/addon-docs';
+import { addMessage, Message } from './m-message.js';
+
+<Meta title="反馈组件/m-Message" />
+
+# Message
+
+Mark-ui 提供 Message 组件，使用 addMessage 方法来创建一个 message 通知
+
+```js
+import { addMessage } from './m-message.js';
+addMessage('123');
+```
+
+<div>
+  <m-button
+    onClick={() => {
+      Message(`Hello Mark-ui`);
+    }}
+  >
+    click me
+  </m-button>
+</div>

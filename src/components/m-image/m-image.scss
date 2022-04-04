@@ -1,5 +1,7 @@
 :host {
   --image-radius: 4px;
+  --image-height: 100%;
+  --image-width: 100%;
   display: inline-block;
 }
 
@@ -10,8 +12,8 @@
 }
 
 img {
-  width: 100%;
-  height: 100%;
+  width: var(--image-height);
+  height: var(--image-width);
   border-radius: var(--image-radius);
 }
 

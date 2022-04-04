@@ -10,6 +10,7 @@
 | Property    | Attribute    | Description | Type               | Default     |
 | ----------- | ------------ | ----------- | ------------------ | ----------- |
 | `color`     | `color`      |             | `string`           | `'#FFF'`    |
+| `fill`      | `fill`       |             | `string`           | `'none'`    |
 | `icon`      | `icon`       |             | `string`           | `undefined` |
 | `iconWidth` | `icon-width` |             | `number`           | `1`         |
 | `size`      | `size`       |             | `number \| string` | `14`        |

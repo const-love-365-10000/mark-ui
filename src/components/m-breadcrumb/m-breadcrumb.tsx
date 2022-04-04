@@ -6,7 +6,7 @@ import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
   shadow: true,
 })
 export class MBreadcrumb {
-  @Prop() list: string[] | string;
+  @Prop() list!: string[] | string;
   @Prop() current: number | string;
   @Prop() separator: string = '/';
   _list: string[];
@@ -35,30 +35,20 @@ export class MBreadcrumb {
   }
   render() {
     const { current, separator, handleList, handleLink } = this;
-    let list;
-    if (this.list) {
-      list = handleList(this.list);
-      this._list = list;
-    }
+    const list = handleList(this.list);
+    this._list = list;
 
     let curIndex;
     if (current) curIndex = typeof current === 'number' ? current : list.findIndex(item => item === current);
 
     return (
       <Host>
-        <div class="m-breadcrumb">
-          {list ? (
-            list.map((item, index) => (
-              <span class={'m-breadcrumb-text ' + (index <= curIndex && 'm-text-bold')} onClick={handleLink.bind(this)} data-index={index}>
-                {item}
-              </span>
-            ))
-          ) : (
-            <span>
-              <slot></slot>
-              <span class="m-breadcrumb-separator">{separator}</span>
+        <div class="m-breadcrumb" style={{ '--separator': `"${separator}"` }}>
+          {list.map((item, index) => (
+            <span class={'m-breadcrumb-text ' + (index <= curIndex && 'm-text-bold')} onClick={handleLink.bind(this)} data-index={index}>
+              {item}
             </span>
-          )}
+          ))}
         </div>
       </Host>
     );
