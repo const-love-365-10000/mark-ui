@@ -17,14 +17,13 @@ export class MButton {
 
   render() {
     let { color, disabled, loading, icon, type } = this;
-    if (loading) icon = 'loading';
 
     return (
       <Host>
         <button id="button" class={`${color ? 'm-color-' + color : ''} m-type-${type} }`} disabled={disabled}>
           {icon && (
             <div class="m-btn-before">
-              <m-icon icon={icon}></m-icon>
+              <m-icon icon={icon} class={{ loading: loading }}></m-icon>
             </div>
           )}
           <slot></slot>

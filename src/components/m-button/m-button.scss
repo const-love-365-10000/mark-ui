@@ -19,6 +19,9 @@ button {
 .m-btn-before {
   margin: 0 4px;
 }
+.m-btn-before m-icon {
+  display: block;
+}
 
 /* 颜色 */
 .m-color-primary {
@@ -121,4 +124,17 @@ button.m-type-flat a:hover {
     width: 100%;
     height: 100%;
   }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading {
+  border-radius: 50%;
+  animation: loading 3s linear infinite;
 }

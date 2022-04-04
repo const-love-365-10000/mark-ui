@@ -169,7 +169,7 @@ declare namespace LocalJSX {
     interface MIcon {
         "color"?: string;
         "fill"?: string;
-        "icon"?: string;
+        "icon": string;
         "iconWidth"?: number;
         "size"?: number | string;
     }
