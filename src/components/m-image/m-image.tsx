@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, State } from '@stencil/core';
+import { Component, Host, h, Prop, State, Method } from '@stencil/core';
 
 type ImgLoadStatus = 'loading' | 'success' | 'error';
 let id: number = 0;
@@ -24,19 +24,24 @@ export class MImage {
   onLoadError() {
     this.imgLoadStatus = 'error';
   }
+  @Method()
+  async retry(url) {
+    if (url) this.src = url;
+    else this.src += '?' + new Date().getTime();
+    this.imgLoadStatus = 'loading';
+  }
   render() {
     const { id, src, fit, alt, onLoadSuccess, onLoadError } = this;
-    const that = this;
 
     return (
       <Host id={`m-image-${id}`}>
-        <div class="m-image" part="m-image-box">
-          {this.imgLoadStatus !== ('error' && 'success') && <slot name="placeholder"></slot>}
-          {this.imgLoadStatus === 'error' && <slot name="error"></slot>}
-          {this.imgLoadStatus !== 'error' && (
-            <img part="m-image" src={src} style={{ 'Object-fit': fit && fit }} alt={alt && alt} onLoad={onLoadSuccess.bind(that)} onError={onLoadError.bind(that)} />
-          )}
-        </div>
+        {/* <div class="m-image" part="m-image-box"> */}
+        {this.imgLoadStatus !== ('error' && 'success') && <slot name="placeholder"></slot>}
+        {this.imgLoadStatus === 'error' && <slot name="error"></slot>}
+        {this.imgLoadStatus !== 'error' && (
+          <img part="m-image" src={src} style={{ 'Object-fit': fit && fit }} alt={alt && alt} onLoad={onLoadSuccess.bind(this)} onError={onLoadError.bind(this)} />
+        )}
+        {/* </div> */}
       </Host>
     );
   }

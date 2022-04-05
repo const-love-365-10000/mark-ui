@@ -37,6 +37,7 @@ export namespace Components {
     interface MImage {
         "alt": string;
         "fit": 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
+        "retry": (url: any) => Promise<void>;
         "src": string;
     }
     interface MMessage {

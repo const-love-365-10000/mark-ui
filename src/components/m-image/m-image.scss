@@ -1,8 +1,10 @@
 :host {
-  --image-radius: 4px;
-  --image-height: 100%;
-  --image-width: 100%;
+  // --image-radius: 4px;
+  // --image-height: 100%;
+  // --image-width: 100%;
   display: inline-block;
+  overflow: hidden;
+  border-radius: var(--border-radius);
 }
 
 .m-image {
@@ -12,9 +14,11 @@
 }
 
 img {
-  width: var(--image-height);
-  height: var(--image-width);
-  border-radius: var(--image-radius);
+  // width: var(--image-height);
+  // height: var(--image-width);
+  // border-radius: var(--image-radius);
+  height: 100%;
+  width: 100%;
 }
 
 ::slotted(img) {

@@ -14,12 +14,24 @@
 | `src` _(required)_ | `src`     |             | `string`                                                   | `undefined` |
 
 
+## Methods
+
+### `retry(url: any) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Shadow Parts
 
-| Part            | Description |
-| --------------- | ----------- |
-| `"m-image"`     |             |
-| `"m-image-box"` |             |
+| Part        | Description |
+| ----------- | ----------- |
+| `"m-image"` |             |
 
 
 ----------------------------------------------
