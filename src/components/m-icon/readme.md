@@ -22,6 +22,7 @@
 
  - [m-alert](../m-alert)
  - [m-button](../m-button)
+ - [m-dialog](../m-dialog)
  - [m-message](../m-message)
 
 ### Graph
@@ -29,6 +30,7 @@
 graph TD;
   m-alert --> m-icon
   m-button --> m-icon
+  m-dialog --> m-icon
   m-message --> m-icon
   style m-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

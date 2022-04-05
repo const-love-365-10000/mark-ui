@@ -18,6 +18,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [m-dialog](../m-dialog)
+
 ### Depends on
 
 - [m-icon](../m-icon)
@@ -26,6 +30,7 @@
 ```mermaid
 graph TD;
   m-button --> m-icon
+  m-dialog --> m-button
   style m-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

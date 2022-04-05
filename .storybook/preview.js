@@ -1,3 +1,5 @@
+// 引入icon
+import './remixicon.css';
 import { defineCustomElements } from '../dist/esm/loader';
 defineCustomElements();
 

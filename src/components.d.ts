@@ -27,6 +27,14 @@ export namespace Components {
     interface MCard {
         "inline": boolean;
     }
+    interface MDialog {
+        "actions": { cancel?: string; confirm?: string };
+        "content": string;
+        "destroy": () => Promise<void>;
+        "icon": string;
+        "name": string;
+        "type": any;
+    }
     interface MIcon {
         "color": string;
         "fill": string;
@@ -88,6 +96,12 @@ declare global {
         prototype: HTMLMCardElement;
         new (): HTMLMCardElement;
     };
+    interface HTMLMDialogElement extends Components.MDialog, HTMLStencilElement {
+    }
+    var HTMLMDialogElement: {
+        prototype: HTMLMDialogElement;
+        new (): HTMLMDialogElement;
+    };
     interface HTMLMIconElement extends Components.MIcon, HTMLStencilElement {
     }
     var HTMLMIconElement: {
@@ -135,6 +149,7 @@ declare global {
         "m-breadcrumb": HTMLMBreadcrumbElement;
         "m-button": HTMLMButtonElement;
         "m-card": HTMLMCardElement;
+        "m-dialog": HTMLMDialogElement;
         "m-icon": HTMLMIconElement;
         "m-image": HTMLMImageElement;
         "m-message": HTMLMMessageElement;
@@ -166,6 +181,13 @@ declare namespace LocalJSX {
     }
     interface MCard {
         "inline"?: boolean;
+    }
+    interface MDialog {
+        "actions"?: { cancel?: string; confirm?: string };
+        "content"?: string;
+        "icon"?: string;
+        "name"?: string;
+        "type"?: any;
     }
     interface MIcon {
         "color"?: string;
@@ -204,6 +226,7 @@ declare namespace LocalJSX {
         "m-breadcrumb": MBreadcrumb;
         "m-button": MButton;
         "m-card": MCard;
+        "m-dialog": MDialog;
         "m-icon": MIcon;
         "m-image": MImage;
         "m-message": MMessage;
@@ -221,6 +244,7 @@ declare module "@stencil/core" {
             "m-breadcrumb": LocalJSX.MBreadcrumb & JSXBase.HTMLAttributes<HTMLMBreadcrumbElement>;
             "m-button": LocalJSX.MButton & JSXBase.HTMLAttributes<HTMLMButtonElement>;
             "m-card": LocalJSX.MCard & JSXBase.HTMLAttributes<HTMLMCardElement>;
+            "m-dialog": LocalJSX.MDialog & JSXBase.HTMLAttributes<HTMLMDialogElement>;
             "m-icon": LocalJSX.MIcon & JSXBase.HTMLAttributes<HTMLMIconElement>;
             "m-image": LocalJSX.MImage & JSXBase.HTMLAttributes<HTMLMImageElement>;
             "m-message": LocalJSX.MMessage & JSXBase.HTMLAttributes<HTMLMMessageElement>;
