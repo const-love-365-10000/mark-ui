@@ -1,34 +1,19 @@
 :host {
   font-family: 'remixicon' !important;
-  --icon-size: 14px;
-  --icon-color: #ffffff;
-  --icon-fill: none;
-  --icon-width: 1px;
-
   display: block;
   align-items: center;
   justify-content: center;
 }
 
 :host(.m-color-primary) {
-  --icon-color: var(--primary-color);
+  color: var(--primary-color);
 }
 :host(.m-color-danger) {
-  --icon-color: var(--danger-color);
+  color: var(--danger-color);
 }
 :host(.m-color-warn) {
-  --icon-color: var(--warn-color);
+  color: var(--warn-color);
 }
 :host(.m-color-success) {
-  --icon-color: var(--success-color);
-}
-
-svg {
-  width: var(--icon-size);
-  height: var(--icon-size);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: var(--icon-width);
-  stroke: var(--icon-color);
-  fill: var(--icon-fill);
+  color: var(--success-color);
 }

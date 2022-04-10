@@ -37,10 +37,8 @@ export namespace Components {
     }
     interface MIcon {
         "color": string;
-        "fill": string;
         "icon": string;
-        "iconWidth": number;
-        "size": number | string;
+        "size": string | number;
     }
     interface MImage {
         "alt": string;
@@ -191,10 +189,8 @@ declare namespace LocalJSX {
     }
     interface MIcon {
         "color"?: string;
-        "fill"?: string;
         "icon": string;
-        "iconWidth"?: number;
-        "size"?: number | string;
+        "size"?: string | number;
     }
     interface MImage {
         "alt"?: string;

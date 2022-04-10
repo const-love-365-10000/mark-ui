@@ -7,10 +7,8 @@ import { Component, Host, h, Prop } from '@stencil/core';
 })
 export class MIcon {
   @Prop() icon!: string;
-  @Prop() size: number | string = 14;
-  @Prop() color: string = '#FFF';
-  @Prop() fill: string = 'none';
-  @Prop() iconWidth: number = 1;
+  @Prop() size: string | number = '14px';
+  @Prop() color: string = '#333';
   componentWillLoad() {
     // document引入font-icon
     if (!document.querySelector('#m-icon-font')) {
@@ -23,9 +21,14 @@ export class MIcon {
     }
   }
   render() {
-    const { icon, size, iconWidth, color, fill } = this;
+    let { icon, size, color } = this;
+
+    if (typeof size === 'number') {
+      size = size + 'px';
+    }
+    console.log('size', size);
     return (
-      <Host icon-name={icon} style={{ '--icon-size': size + 'px', '--icon-width': iconWidth + 'px', '--icon-color': color, '--icon-fill': fill }}>
+      <Host icon-name={icon} style={{ 'font-size': size, 'color': color }}>
         <i class={'m-icon ri-' + icon}></i>
       </Host>
     );

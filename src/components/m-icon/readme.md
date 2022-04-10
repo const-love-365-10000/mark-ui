@@ -9,11 +9,11 @@
 
 | Property            | Attribute    | Description | Type               | Default     |
 | ------------------- | ------------ | ----------- | ------------------ | ----------- |
-| `color`             | `color`      |             | `string`           | `'#FFF'`    |
+| `color`             | `color`      |             | `string`           | `'#333'`    |
 | `fill`              | `fill`       |             | `string`           | `'none'`    |
 | `icon` _(required)_ | `icon`       |             | `string`           | `undefined` |
 | `iconWidth`         | `icon-width` |             | `number`           | `1`         |
-| `size`              | `size`       |             | `number \| string` | `14`        |
+| `size`              | `size`       |             | `number \| string` | `'14px'`    |
 
 
 ## Dependencies
